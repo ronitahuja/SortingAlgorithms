@@ -35,11 +35,16 @@ string Trim(string &s)
    return s.substr(start, end - start + 1);
 }
 int32_t main() {
-   fast_io;
-   int tt;cin>>tt;
-
-   while(tt--){
-      
-   }
+   int n;cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++) cin>>arr[i];
+    for(int i=0;i<n-1;i++){
+        int minindex=i;
+        for(int j=i+1;j<n;j++){
+            if(arr[j]<arr[minindex])minindex=j;
+        }
+        swap(arr[i],arr[minindex]);
+    }
+    for(int i:arr)cout<<i<<" ";
    return 0;
 }
